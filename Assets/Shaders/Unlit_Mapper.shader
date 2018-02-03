@@ -1,4 +1,4 @@
-﻿Shader "Custom/Decoder"
+﻿Shader "Custom/UnlitMask"
 {
 	Properties
 	{
@@ -9,6 +9,8 @@
 	}
 	SubShader
 	{
+		Tags { "Queue"="Transparent" "RenderType"="Transparent" "IgnoreProjector"="True" }
+
 		// No culling or depth
 		Cull Off ZWrite Off ZTest Always
 		Blend SrcAlpha OneMinusSrcAlpha
@@ -66,13 +68,13 @@
 				fixed4 component_red = tex2D(_RedTex, i.uv1);
 				fixed4 component_green = tex2D(_GreenTex, i.uv2);
 				fixed4 component_blue = tex2D(_BlueTex, i.uv3);
-
-				fixed3 value = saturate(cross(main_color.rgb, 1.0));
-				fixed4 color = fixed4(lerp(0, component_red.rgb, value.z), main_color.a);
-
-				color.rgb += lerp(0, component_green.rgb, value.x);
-
-				color.rgb += lerp(0, component_blue.rgb, value.y);
+				half4 color = fixed4(0.0, 0.0, 0.0, main_color.a);
+				half3 product = dot(main_color.rgb, 1.0);
+				
+				color.rgb += component_red.rgb * main_color.r;
+				color.rgb += component_green.rgb * main_color.g;
+				color.rgb += component_blue.rgb * main_color.b;
+				color.rgb *= product;
 
 				return color;
 			}
