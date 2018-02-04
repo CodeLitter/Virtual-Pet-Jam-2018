@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//[CreateAssetMenu(menuName="Marine/Attributes")]
 public class Attributes : ScriptableObject
 {
     private System.DateTime _creation;
