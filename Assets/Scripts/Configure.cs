@@ -4,12 +4,14 @@ using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Renderer))]
-public class Life : MonoBehaviour
+[RequireComponent(typeof(Rigidbody2D))]
+public class Configure : MonoBehaviour
 {
-    [HideInInspector]
-    public Animator animator;
-    [HideInInspector]
-    public new Renderer renderer;
+    private int idSpeed = Animator.StringToHash("Speed");
+    private int idDeath = Animator.StringToHash("Death");
+    [HideInInspector]public Animator animator;
+    [HideInInspector]public new Renderer renderer;
+    [HideInInspector]public new Rigidbody2D rigidbody2D;
     public Attributes attributes;
 
     private void OnValidate ()
@@ -29,9 +31,17 @@ public class Life : MonoBehaviour
         }
     }
 
-    private void Awake()
+    private void Awake ()
     {
         animator = GetComponent<Animator>();
-        animator.runtimeAnimatorController = attributes.controller;
+        renderer = GetComponent<Renderer>();
+        rigidbody2D = GetComponent<Rigidbody2D>();
+    }
+
+    private void Update ()
+    {
+        animator.SetFloat(idSpeed, rigidbody2D.velocity.magnitude);
+        //TODO conditions to kill the fish
+        //animator.SetTrigger(idDeath, )
     }
 }

@@ -9,7 +9,6 @@ public class Attributes : ScriptableObject
     private System.DateTime creation;
     public AnimatorOverrideController controller;
     public Material material;
-    public int health = 10;
     public int age
     {
         set
