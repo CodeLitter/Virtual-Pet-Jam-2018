@@ -6,15 +6,16 @@ using UnityEngine;
 //[CreateAssetMenu(menuName="Marine/Attributes")]
 public class Attributes : ScriptableObject
 {
-    private System.DateTime creation;
+    private System.DateTime _creation;
     public AnimatorOverrideController controller;
     public Material material;
+    public int lifespan = 2;
     public int age
     {
         set
         {
             DateTime now = System.DateTime.Now;
-            creation = new DateTime(
+            _creation = new DateTime(
                 now.Year,
                 now.Month,
                 now.Day,
@@ -25,7 +26,7 @@ public class Attributes : ScriptableObject
         }
         get
         {
-            return (System.DateTime.Now - creation).Minutes;
+            return (System.DateTime.Now - _creation).Minutes;
         }
     }
 }

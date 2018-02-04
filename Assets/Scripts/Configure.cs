@@ -7,8 +7,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Configure : MonoBehaviour
 {
-    private int idSpeed = Animator.StringToHash("Speed");
-    private int idDeath = Animator.StringToHash("Death");
+    private int _idSpeed = Animator.StringToHash("Speed");
+    private int _idDeath = Animator.StringToHash("Death");
     [HideInInspector]public Animator animator;
     [HideInInspector]public new Renderer renderer;
     [HideInInspector]public new Rigidbody2D rigidbody2D;
@@ -40,7 +40,7 @@ public class Configure : MonoBehaviour
 
     private void Update ()
     {
-        animator.SetFloat(idSpeed, rigidbody2D.velocity.magnitude);
+        animator.SetFloat(_idSpeed, rigidbody2D.velocity.magnitude);
         //TODO conditions to kill the fish
         //animator.SetTrigger(idDeath, )
     }
