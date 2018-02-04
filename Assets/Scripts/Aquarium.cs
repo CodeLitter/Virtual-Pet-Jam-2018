@@ -4,24 +4,22 @@ using UnityEngine;
 
 public class Aquarium : MonoBehaviour
 {
-    public List<Attributes> marineLife;
+    public readonly List<GameObject> marineLife = new List<GameObject>();
 
-    private void Spawn ()
+    private void Awake()
     {
-        foreach (var marine_life in marineLife)
-        {
-            GameObject game_object = new GameObject(marine_life.name);
-            game_object.AddComponent<SpriteRenderer>();
-            game_object.AddComponent<Animator>();
-            game_object.AddComponent<Rigidbody2D>().gravityScale = 0;
-            var configure = game_object.AddComponent<Configure>();
-            configure.attributes = marine_life;
-            configure.SendMessage("OnValidate");
-        }
     }
 
-    private void Start()
+    public void Spawn (Discriptor discriptor)
     {
-        Spawn();
-    }
+        Attributes attributes = discriptor.Create();
+        GameObject game_object = new GameObject();
+        game_object.AddComponent<SpriteRenderer>();
+        game_object.AddComponent<Animator>();
+        game_object.AddComponent<Rigidbody2D>().gravityScale = 0;
+        var configure = game_object.AddComponent<Configure>();
+        configure.attributes = attributes;
+        configure.SendMessage("OnValidate");
+        marineLife.Add(game_object);
+    }   
 }
