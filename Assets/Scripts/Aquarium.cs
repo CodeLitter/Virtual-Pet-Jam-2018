@@ -6,11 +6,6 @@ public class Aquarium : MonoBehaviour
 {
     public readonly List<GameObject> marineLife = new List<GameObject>();
 
-    private void Awake()
-    {
-        Debug.Log(Application.persistentDataPath);
-    }
-
     public void Spawn (Attributes attributes)
     {
         GameObject game_object = new GameObject();
