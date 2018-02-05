@@ -9,9 +9,4 @@ public class MenuManager : MonoBehaviour
     {
         SceneManager.LoadScene(index);
     }
-
-    public void Buy (Descriptor descriptor)
-    {
-        LifeTracker.instance.Create(descriptor);
-    }
 }

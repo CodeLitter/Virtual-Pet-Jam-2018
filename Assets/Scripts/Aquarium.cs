@@ -5,16 +5,21 @@ using UnityEngine;
 
 public class Aquarium : MonoBehaviour
 {
-    //public readonly List<GameObject> marineLife = new List<GameObject>();
     public Inhabitant prefab;
 
     private void OnEnable ()
     {
         //TODO Assignment of certain inhabitants to each aquarium
-        foreach (var item in LifeTracker.instance.attributes)
+        foreach (var item in Tracker.instance.attributes)
         {
             Spawn(item, Vector3.zero);
         }
+    }
+
+    public void Spawn (Descriptor descriptor)
+    {
+        Attributes attributes = descriptor.Create();
+        Vector3 position = Random.insideUnitCircle * Camera.main.fieldOfView;
     }
 
     public void Spawn (Attributes attributes, Vector3 position)
