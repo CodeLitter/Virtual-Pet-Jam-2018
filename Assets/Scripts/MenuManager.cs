@@ -10,8 +10,8 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene(index);
     }
 
-    public void Buy (Discriptor discriptor)
+    public void Buy (Descriptor descriptor)
     {
-        LifeTracker.instance.Create(discriptor);
+        LifeTracker.instance.Create(descriptor);
     }
 }

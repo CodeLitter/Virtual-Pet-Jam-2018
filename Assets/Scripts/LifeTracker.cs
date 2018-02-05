@@ -19,8 +19,8 @@ public class LifeTracker : ScriptableObject
 
     public List<Attributes> attributes = new List<Attributes>();
 
-    public void Create (Discriptor discriptor)
+    public void Create (Descriptor descriptor)
     {
-        attributes.Add(discriptor.Create());
+        attributes.Add(descriptor.Create());
     }
 }

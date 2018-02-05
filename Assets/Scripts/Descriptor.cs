@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Marine/Discriptor")]
-public class Discriptor : ScriptableObject
+[CreateAssetMenu(menuName = "Marine/Descriptor")]
+public class Descriptor : ScriptableObject
 {
     public int minLifeSpan;
     public int maxLifeSpan;
