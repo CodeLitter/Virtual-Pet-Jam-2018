@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Renderer))]
 [RequireComponent(typeof(Rigidbody2D))]
-public class Configure : MonoBehaviour
+public class Inhabitant : MonoBehaviour
 {
     private int _idSpeed = Animator.StringToHash("Speed");
     private int _idDeath = Animator.StringToHash("Death");

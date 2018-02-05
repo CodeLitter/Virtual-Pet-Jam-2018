@@ -8,16 +8,16 @@ public class Aquarium : MonoBehaviour
 
     private void Awake()
     {
+        Debug.Log(Application.persistentDataPath);
     }
 
-    public void Spawn (Discriptor discriptor)
+    public void Spawn (Attributes attributes)
     {
-        Attributes attributes = discriptor.Create();
         GameObject game_object = new GameObject();
         game_object.AddComponent<SpriteRenderer>();
         game_object.AddComponent<Animator>();
         game_object.AddComponent<Rigidbody2D>().gravityScale = 0;
-        var configure = game_object.AddComponent<Configure>();
+        var configure = game_object.AddComponent<Inhabitant>();
         configure.attributes = attributes;
         configure.SendMessage("OnValidate");
         marineLife.Add(game_object);
