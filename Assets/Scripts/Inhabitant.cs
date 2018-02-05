@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-[RequireComponent(typeof(Renderer))]
+[RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(Rigidbody2D))]
 public class Inhabitant : MonoBehaviour
 {
     private int _idSpeed = Animator.StringToHash("Speed");
     private int _idDeath = Animator.StringToHash("Death");
     [HideInInspector]public Animator animator;
-    [HideInInspector]public new Renderer renderer;
+    [HideInInspector]public new SpriteRenderer renderer;
     [HideInInspector]public new Rigidbody2D rigidbody2D;
     public Attributes attributes;
 
@@ -23,7 +23,7 @@ public class Inhabitant : MonoBehaviour
             {
                 animator.runtimeAnimatorController = attributes.controller;
             }
-            renderer = GetComponent<Renderer>();
+            renderer = GetComponent<SpriteRenderer>();
             if (renderer)
             {
                 renderer.material = attributes.material;
@@ -34,14 +34,18 @@ public class Inhabitant : MonoBehaviour
     private void Awake ()
     {
         animator = GetComponent<Animator>();
-        renderer = GetComponent<Renderer>();
+        renderer = GetComponent<SpriteRenderer>();
         rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
     private void Update ()
     {
         animator.SetFloat(_idSpeed, rigidbody2D.velocity.magnitude);
-        //TODO conditions to kill the fish
-        //animator.SetTrigger(idDeath, )
+        renderer.flipX = rigidbody2D.velocity.x < 0;
+    }
+
+    public void Kill ()
+    {
+        animator.SetTrigger(_idDeath);
     }
 }
