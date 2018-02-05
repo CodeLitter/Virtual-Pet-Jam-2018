@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LifeTracker : ScriptableObject
+public class Tracker : ScriptableObject
 {
-    private static LifeTracker lifeTracker;
-    public static LifeTracker instance
+    private static Tracker tracker;
+    public static Tracker instance
     {
         get
         {
-            if (!lifeTracker)
+            if (!tracker)
             {
-                lifeTracker = ScriptableObject.CreateInstance<LifeTracker>();
+                tracker = ScriptableObject.CreateInstance<Tracker>();
             }
-            return lifeTracker;
+            return tracker;
         }
     }
 
