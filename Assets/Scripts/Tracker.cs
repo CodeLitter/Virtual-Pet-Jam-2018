@@ -17,6 +17,7 @@ public class Tracker : ScriptableObject
         }
     }
 
+    public Inhabitant selected = null;
     public List<Attributes> attributes = new List<Attributes>();
     public int cash;
     public int food;
