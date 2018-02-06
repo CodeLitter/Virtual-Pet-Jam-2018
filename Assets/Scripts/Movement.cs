@@ -4,42 +4,29 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public Rigidbody2D fish;
-    public float speed;
-    public Transform boundryLeft;
-    public Transform boundryRight;
+	[HideInInspector]public new Rigidbody2D rigidbody2D;
+    public float speed = 1;
 
-    private Vector2 right;
-    private Vector2 left;
     private Vector2 direction;
+
+	private void Awake ()
+	{
+		rigidbody2D = GetComponent<Rigidbody2D>();
+	}
 
     private void Start()
     {
-        speed = 1.0f;
-        right = new Vector2(1, 0);
-        left = new Vector2(-1, 0);
-        direction = right;
+		direction = Random.onUnitSphere.normalized;
     }
 
     private void FixedUpdate()
     {
-        fish.AddForce(direction * speed);
+        rigidbody2D.AddForce(direction * speed);
+        transform.right = rigidbody2D.velocity;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.tag == "LeftBoundry")
-        {
-            direction = right;
-        }
-        else if (collision.collider.tag == "RightBoundry")
-        {
-
-        }
-        {
-            direction = left;
-        }
+		direction = -direction;
     }
-
-
 }

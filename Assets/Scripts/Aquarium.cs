@@ -19,7 +19,7 @@ public class Aquarium : MonoBehaviour
 
     public void Spawn (Attributes attributes)
     {
-        Vector3 position = Random.insideUnitCircle * Camera.main.orthographicSize;
+        Vector2 position = Random.insideUnitCircle.normalized;
         Inhabitant inhabitant = Instantiate<Inhabitant>(prefab, position, Quaternion.identity, transform);
         inhabitant.attributes = attributes;
         inhabitant.SendMessage("OnValidate");

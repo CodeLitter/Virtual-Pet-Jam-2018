@@ -9,10 +9,18 @@ public class Inhabitant : MonoBehaviour
 {
     private int _idSpeed = Animator.StringToHash("Speed");
     private int _idDeath = Animator.StringToHash("Death");
-    [HideInInspector]public Animator animator;
-    [HideInInspector]public new SpriteRenderer renderer;
-    [HideInInspector]public new Rigidbody2D rigidbody2D;
+    [HideInInspector] public Animator animator;
+    [HideInInspector] public new SpriteRenderer renderer;
+    [HideInInspector] public new Rigidbody2D rigidbody2D;
     public Attributes attributes;
+    public bool alive
+    {
+        get
+        {
+            return rigidbody2D.gravityScale == 0;
+        }
+    }
+
 
     private void OnValidate ()
     {
@@ -41,11 +49,12 @@ public class Inhabitant : MonoBehaviour
     private void Update ()
     {
         animator.SetFloat(_idSpeed, rigidbody2D.velocity.magnitude);
-        renderer.flipX = rigidbody2D.velocity.x < 0;
+        renderer.flipY = rigidbody2D.velocity.x < 0;
     }
 
     public void Kill ()
     {
         animator.SetTrigger(_idDeath);
+        rigidbody2D.gravityScale = 1;
     }
 }
