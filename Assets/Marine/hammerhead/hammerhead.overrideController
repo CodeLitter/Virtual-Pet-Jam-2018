@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: hammerhead
+  m_Controller: {fileID: 9100000, guid: 7edaf9a55c4334d4aaec6f75718dfa51, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: ec39605e3948a7d4e97894176ebaac77, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a83d5d4994292754ab24d954c2bf0147, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 8b541adac7822a7488120eb299c5edb9, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d5a9826e49bf69f41815b84cebb62d2e, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 49002b8293e4218498774eb1e0aea8e1, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 2a9adc61f7dda41479c1fa0e443f70b5, type: 2}
