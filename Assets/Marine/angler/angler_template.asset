@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51c6fd15fd66b7544b2afab7e05cfde6, type: 3}
   m_Name: angler_template
   m_EditorClassIdentifier: 
-  minLifeSpan: 2
-  maxLifeSpan: 5
+  minLifeSpan: 1
+  maxLifeSpan: 1
   controller: {fileID: 22100000, guid: a0f70898a2786de4cb5b8dd8c732d593, type: 2}
   materials:
   - {fileID: 2100000, guid: 03fdc740c8a4347469023e6ccf96b2d9, type: 2}
