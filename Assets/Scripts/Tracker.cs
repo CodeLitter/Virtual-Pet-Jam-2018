@@ -18,9 +18,6 @@ public class Tracker : ScriptableObject
     }
 
     public List<Attributes> attributes = new List<Attributes>();
-
-    public void Create (Descriptor descriptor)
-    {
-        attributes.Add(descriptor.Create());
-    }
+    public int cash;
+    public int food;
 }

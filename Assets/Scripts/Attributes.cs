@@ -9,6 +9,7 @@ public class Attributes : ScriptableObject
     public AnimatorOverrideController controller;
     public Material material;
     public int lifespan = 2;
+    public int value = 0;
     public int age
     {
         set
