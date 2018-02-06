@@ -16,6 +16,13 @@ public class MenuManager : MonoBehaviour
         Tracker.instance.attributes.Add(attributes);
     }
 
+    public void Sell (Attributes attributes)
+    {
+        //valuate
+        //add to cash
+        //remove from list
+    }
+
     public void AddFood()
     {
         Tracker.instance.food++;
